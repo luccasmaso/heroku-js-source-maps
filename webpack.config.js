@@ -8,13 +8,7 @@ var version = PACKAGE.version
 module.exports = function config() {
   return {
     mode: 'production',
-    entry: ['./app/index.js'],
     devtool: 'source-map',
-    output: {
-      path: path.join(__dirname, './dist'),
-      filename: 'dist/[name]-[id]-[contenthash].js',
-      clean: true
-    },
     plugins: [
       new BugsnagBuildReporterPlugin({ apiKey: process.env.BUGSNAG_API_KEY, appVersion: version,
         releaseStage: process.env.NODE_ENV,
